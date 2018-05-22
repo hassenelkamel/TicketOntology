@@ -35,13 +35,13 @@ public class AutomatonpatternExtractionExp {
 	 */
 	public static void run() {
 		
-//		try {
-//			System.out.println("1. start loading DB data to XML file...");
-//			DBEventLoader.loadDBData2File(DB_EVENT_XML_FILENMAE);
-//			System.out.println("1. finish loading DB data...");
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
+		try {
+			System.out.println("1. start loading DB data to XML file...");
+			DBEventLoader.loadDBData2File(DB_EVENT_XML_FILENMAE);
+			System.out.println("1. finish loading DB data...");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		System.out.println(DateUtil.getDate() + " ===================================");
 		try {
@@ -57,26 +57,26 @@ public class AutomatonpatternExtractionExp {
 		System.out.println("3. start filtering repeated pattern phrases...");
 		PhraseFilters.filters(REPEATED_PATTERN_PHRASE_FILENAME, ENTITY_PHRASES_FILENAME, ACTTION_PHRASES_FILENAME);
 		System.out.println("3. finish filtering...");
-//		
-//		System.out.println("===================================");
-//		try {
-//			System.out.println("4. start tagging tickets...");
-//			ClassTagger.experiment(DB_EVENT_XML_FILENMAE, STATISTICS_CLASSTAGGER_FILENAME);
-//			System.out.println("4. finsh tagging...");
-//		} catch (IOException | XMLStreamException | DocumentException e) {
-//			e.printStackTrace();
-//		}
-//		
-//		System.out.println("===================================");
-//		System.out.println("5. start postprocessing tagged tickets...");
-//		PostProcess.experiment(STATISTICS_CLASSTAGGER_FILENAME, POSTPROCESS_CLASSTAGGER_FILENAME);
-//		System.out.println("5. finish postprocessing...");
-//		
-//		System.out.println("===================================");
-//		System.out.println("6. start extracting problem, activity and action...");
-//		TicketKnowledgeExtraction extraction =  new TicketKnowledgeExtraction();
-//		extraction.experiment(POSTPROCESS_CLASSTAGGER_FILENAME);
-//		System.out.println("6. finish extracting...");
+		
+		System.out.println("===================================");
+		try {
+			System.out.println("4. start tagging tickets...");
+			ClassTagger.experiment(DB_EVENT_XML_FILENMAE, STATISTICS_CLASSTAGGER_FILENAME);
+			System.out.println("4. finsh tagging...");
+		} catch (IOException | XMLStreamException | DocumentException e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println("===================================");
+		System.out.println("5. start postprocessing tagged tickets...");
+		PostProcess.experiment(STATISTICS_CLASSTAGGER_FILENAME, POSTPROCESS_CLASSTAGGER_FILENAME);
+		System.out.println("5. finish postprocessing...");
+		
+		System.out.println("===================================");
+		System.out.println("6. start extracting problem, activity and action...");
+		TicketKnowledgeExtraction extraction =  new TicketKnowledgeExtraction();
+		extraction.experiment(POSTPROCESS_CLASSTAGGER_FILENAME);
+		System.out.println("6. finish extracting...");
 		
 	} 
 	
